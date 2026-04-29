@@ -1,12 +1,12 @@
 import { Order } from '../types';
-import { MOCK_PRODUCTS } from './products';
+import { MOCK_DATABASE_PRODUCTS } from './database.mock';
 
 export const MOCK_ORDERS: Order[] = [
   {
     id: 'ord-001',
     items: [
-      { id: 'oi1', product: MOCK_PRODUCTS[0], quantity: 1 },
-      { id: 'oi2', product: MOCK_PRODUCTS[4], quantity: 1 },
+      { id: 'oi1', product: MOCK_DATABASE_PRODUCTS[0], quantity: 1 },
+      { id: 'oi2', product: MOCK_DATABASE_PRODUCTS[4], quantity: 1 },
     ],
     status: 'shipped',
     subtotal: 10398,
@@ -19,7 +19,7 @@ export const MOCK_ORDERS: Order[] = [
   {
     id: 'ord-002',
     items: [
-      { id: 'oi3', product: MOCK_PRODUCTS[8], quantity: 2 },
+      { id: 'oi3', product: MOCK_DATABASE_PRODUCTS[8], quantity: 2 },
     ],
     status: 'delivered',
     subtotal: 1798,
@@ -32,7 +32,7 @@ export const MOCK_ORDERS: Order[] = [
   {
     id: 'ord-003',
     items: [
-      { id: 'oi4', product: MOCK_PRODUCTS[2], quantity: 1 },
+      { id: 'oi4', product: MOCK_DATABASE_PRODUCTS[2], quantity: 1 },
     ],
     status: 'placed',
     subtotal: 3499,

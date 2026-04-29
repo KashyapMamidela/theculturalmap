@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { User } from '../types';
-import { MOCK_USER } from '../mocks/users';
+import { MOCK_USER } from '../mocks/database.mock';
 
 interface AuthState {
   user: User | null;

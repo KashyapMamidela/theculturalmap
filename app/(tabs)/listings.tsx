@@ -8,12 +8,13 @@ import { Spacing } from '../../src/theme/spacing';
 import { ProductCard } from '../../src/components/cards/ProductCard';
 import { EmptyState } from '../../src/components/ui/EmptyState';
 import { TopBar } from '../../src/components/ui/TopBar';
-import { MOCK_PRODUCTS } from '../../src/mocks/products';
+import { useProductStore } from '../../src/store/product.store';
 
 export default function ListingsScreen() {
   const insets = useSafeAreaInsets();
   // Show first 4 products as "seller's listings"
-  const myListings = MOCK_PRODUCTS.slice(0, 4);
+  const products = useProductStore((s) => s.products);
+  const myListings = products.slice(0, 4);
 
   return (
     <View style={[styles.container, { paddingTop: insets.top }]}>

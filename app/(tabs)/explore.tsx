@@ -9,7 +9,7 @@ import { Radii, Shadows } from '../../src/theme/shadows';
 import { SearchBar } from '../../src/components/ui/SearchBar';
 import { ProductCard } from '../../src/components/cards/ProductCard';
 import { EmptyState } from '../../src/components/ui/EmptyState';
-import { MOCK_PRODUCTS } from '../../src/mocks/products';
+import { useProductStore } from '../../src/store/product.store';
 
 const CATEGORIES = [
   { emoji: '🏺', name: 'Pottery', count: 234 },
@@ -34,7 +34,9 @@ export default function ExploreScreen() {
   const insets = useSafeAreaInsets();
   const [search, setSearch] = useState('');
 
-  const filteredProducts = MOCK_PRODUCTS.filter(
+  const products = useProductStore((s) => s.products);
+
+  const filteredProducts = products.filter(
     (p) => p.title.toLowerCase().includes(search.toLowerCase()) || p.state.toLowerCase().includes(search.toLowerCase())
   );
 

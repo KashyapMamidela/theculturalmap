@@ -1,6 +1,59 @@
-import { Product } from '../types';
+import { Product, Seller, User, Order } from '../types';
 
-export const MOCK_PRODUCTS: Product[] = [
+export const MOCK_USER: User = {
+  id: 'u1',
+  name: 'Arjun Sharma',
+  phone: '+919876543210',
+  email: 'arjun@example.com',
+  avatar: null,
+  role: 'buyer',
+  location: 'Hyderabad, Telangana',
+  createdAt: '2025-01-01',
+};
+
+export const MOCK_SELLERS: Seller[] = [
+  {
+    id: 's1',
+    userId: 'u1',
+    businessName: 'Varanasi Weavers Co.',
+    description: 'Authentic handwoven Banarasi silk sarees straight from the looms of Varanasi.',
+    state: 'Uttar Pradesh',
+    city: 'Varanasi',
+    isVerified: true,
+    verificationStatus: 'approved',
+    rating: 4.8,
+    totalSales: 342,
+    joinedAt: '2024-05-15',
+  },
+  {
+    id: 's2',
+    userId: 'u2',
+    businessName: 'Jaipur Crafts Hub',
+    description: 'Bringing you the vibrant colors of Rajasthan through authentic blue pottery and handicrafts.',
+    state: 'Rajasthan',
+    city: 'Jaipur',
+    isVerified: true,
+    verificationStatus: 'approved',
+    rating: 4.6,
+    totalSales: 890,
+    joinedAt: '2023-11-20',
+  },
+  {
+    id: 's11',
+    userId: 'u3',
+    businessName: 'Pochampally Weavers',
+    description: 'Traditional Ikat weaves and readymade clothing from the heart of Telangana.',
+    state: 'Telangana',
+    city: 'Hyderabad',
+    isVerified: true,
+    verificationStatus: 'approved',
+    rating: 4.9,
+    totalSales: 1560,
+    joinedAt: '2023-02-10',
+  }
+];
+
+export const MOCK_DATABASE_PRODUCTS: Product[] = [
   {
     id: 'p1',
     title: 'Handwoven Banarasi Silk Saree',

@@ -11,7 +11,7 @@ import { Button } from '../../src/components/ui/Button';
 import { Chip } from '../../src/components/ui/Chip';
 import { ProductCard } from '../../src/components/cards/ProductCard';
 import { useCartStore } from '../../src/store/cart.store';
-import { MOCK_PRODUCTS } from '../../src/mocks/products';
+import { useProductStore } from '../../src/store/product.store';
 import { formatINR } from '../../src/utils/currency';
 
 export default function ProductDetailScreen() {
@@ -20,8 +20,11 @@ export default function ProductDetailScreen() {
   const insets = useSafeAreaInsets();
   const addItem = useCartStore((s) => s.addItem);
 
-  const product = MOCK_PRODUCTS.find((p) => p.id === id);
-  const related = MOCK_PRODUCTS.filter((p) => p.id !== id && p.category === product?.category).slice(0, 4);
+  const getProductById = useProductStore((s) => s.getProductById);
+  const products = useProductStore((s) => s.products);
+
+  const product = getProductById(id);
+  const related = products.filter((p) => p.id !== id && p.category === product?.category).slice(0, 4);
 
   if (!product) {
     return (

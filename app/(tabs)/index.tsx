@@ -12,7 +12,7 @@ import { StateCard } from '../../src/components/cards/StateCard';
 import { ProductCard } from '../../src/components/cards/ProductCard';
 import { useUIStore } from '../../src/store/ui.store';
 import { useAuthStore } from '../../src/store/auth.store';
-import { MOCK_PRODUCTS } from '../../src/mocks/products';
+import { useProductStore } from '../../src/store/product.store';
 import { MOCK_STATES } from '../../src/mocks/states';
 import { PRODUCT_FILTER_CHIPS } from '../../src/utils/constants';
 import { ProductFilterType } from '../../src/types';
@@ -23,7 +23,9 @@ export default function HomeScreen() {
   const { searchQuery, setSearchQuery, selectedProductType, setProductType } = useUIStore();
   const [refreshing, setRefreshing] = useState(false);
 
-  const filteredProducts = MOCK_PRODUCTS.filter((p) => {
+  const products = useProductStore((s) => s.products);
+
+  const filteredProducts = products.filter((p) => {
     if (selectedProductType !== 'all' && p.productType !== selectedProductType) return false;
     if (searchQuery && !p.title.toLowerCase().includes(searchQuery.toLowerCase())) return false;
     return true;

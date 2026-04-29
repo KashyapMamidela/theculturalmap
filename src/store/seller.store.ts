@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { Seller, VerificationStatus } from '../types';
-import { MOCK_SELLER } from '../mocks/users';
+import { MOCK_SELLERS } from '../mocks/database.mock';
 
 interface SellerState {
   seller: Seller | null;
@@ -12,7 +12,7 @@ interface SellerState {
 }
 
 export const useSellerStore = create<SellerState>((set, get) => ({
-  seller: MOCK_SELLER,
+  seller: MOCK_SELLERS[0],
   verificationStep: 1,
 
   setSeller: (seller: Seller) => set({ seller }),
